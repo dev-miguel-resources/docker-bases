@@ -43,11 +43,18 @@ docker start <nombre del contenedor> | identificador>
 
 ### Crear un contenedor mezclando el docker pull, docker create y el docker start
 ```
-docker run --name test -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8
+docker run -d --name test -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8 (con definición de variables de entorno)
+docker run -d -p 3310:3306 --name mysqlserver -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8 (con definición de puertos)
 ```
 
 ### Para inspeccionar el contenido de un contenedor
 
 ```
 docker inspect <nombre del contenedor> | identificador>
+```
+
+### Vincularme mediante la terminal con un contenedor
+
+```
+docker exec -it mysqlserver sh
 ```
