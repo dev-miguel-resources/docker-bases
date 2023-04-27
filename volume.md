@@ -14,7 +14,6 @@ Host, Anónimo y Nombrado
 3. De acceso visible y manipulable por gestiones humanas
 
 docker run -d -p 3310:3306 -v E:\docker_examples\docker\volumen\mysql:/var/lib/mysql --name mysqlserver -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8
-4c239c7ab1a0141250860e519a672606d6c643214668d32c0b9e2dae29fb7005
 ```
 
 #### Para listar los volúmenes
@@ -49,11 +48,16 @@ anónimo se vuelve a crear pero con un nombre diferente
 6. Los volúmenes de tipo anónimo, son los únicos que los puedes eliminar en conjunto con el contenedor
 
 docker run -d -p 3310:3306 -v :/var/lib/mysql --name mysqlserver -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8
-4c239c7ab1a0141250860e519a672606d6c643214668d32c0b9e2dae29fb7005
 ```
 
 #### Para eliminar volúmenes anónimos en conjunto del contenedor
 
 ```
 docker rm -fv <nombre del contenedor>
+```
+
+#### Creación y ejemplo de volúmen nombrado
+
+```
+docker run -d -p 3310:3306 -v volu-mysql:/var/lib/mysql --name mysqlserver -e MYSQL_ROOT_PASSWORD=12345 -e MYSQL_USER=user -e MYSQL_PASSWORD=12345 -e MYSQL_DATABASE=cursonode mysql:8
 ```
